@@ -1,7 +1,9 @@
 const mongoose = require("mongoose")
+require("dotenv").config()
+const uri = process.env.MONGO_URI
 
 const connectToMongo = async ()=>{
-    const response = mongoose.connect("mongodb+srv://yadneshgovalkar:projectdypu@cryptocave.essmlf5.mongodb.net/cryptodb")
+    const response = mongoose.connect(uri)
 
     return response
 }
