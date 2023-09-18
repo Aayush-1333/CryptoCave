@@ -1,5 +1,6 @@
-import React, { useContext, useState } from 'react'
-import UserContext from '../../context/UserContext';
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+// import UserContext from '../../context/UserContext';
 
 
 export default function Login() {
@@ -10,7 +11,7 @@ export default function Login() {
         password: ""
     })
 
-    const { UserLogin } = useContext(UserContext)
+    // const { UserLogin } = useContext(UserContext)
 
     const ChangePasswdStyle = () => {
         if (passwdStyle === "password")
@@ -30,11 +31,11 @@ export default function Login() {
     }
 
     return (
-        <div className='p-5 bg-slate-500 h-screen'>
-            <form action="#" className='flex justify-center my-10' onSubmit={SubmitForm}>
+        <div className='p-5 bg-gradient-to-r from-indigo-700 to-indigo-950 dark:from-slate-600 dark:to-slate-900 h-screen'>
+            <form className='flex justify-center my-10' onSubmit={SubmitForm}>
 
-                <div className='bg-green-300 flex flex-col p-10 self-center rounded-xl'>
-                    <h2 className='text-center text-3xl'>Let's get back to crypto journey!</h2>
+                <div className='bg-green-500 dark:bg-yellow-600 flex flex-col p-10 self-center rounded-xl'>
+                    <h2 className='text-center text-3xl font-bold'>Let's get back to crypto journey!</h2>
 
                     <div className='flex flex-col p-2 self-center'>
                         <label htmlFor="email" className='p-2 text-xl'>Email</label>
@@ -46,14 +47,19 @@ export default function Login() {
                         <input type={passwdStyle} className='rounded-lg p-1' placeholder='Your password' name='password' value={loginData.password} onChange={OnChange} required />
                         <div className='flex mt-4 space-x-4'>
                             <input type="checkbox" className='rounded-lg p-1' name='show-passwd' onClick={ChangePasswdStyle} />
-                            <label htmlFor="show-passwd">Show password</label>
+                            <label htmlFor="show-passwd text-xl">Show password</label>
                         </div>
                     </div>
 
 
                     <div className='self-center space-x-8 my-6'>
-                        <button type='submit' className='bg-white opacity-60 hover:opacity-100 p-1 border border-3 rounded-lg'>Login</button>
+                        <button disabled={true} type='submit' className='bg-white opacity-60 hover:opacity-100 p-1 border border-3 rounded-lg'>Login</button>
+
                         <button type='submit' className='bg-white opacity-60 hover:opacity-100 p-1 border border-3 rounded-lg'>Back</button>
+                    </div>
+
+                    <div className='self-center'>
+                        <p>Don't have an account? <Link to='/signup' className='text-blue-700 hover:text-blue-500'>Sign Up</Link></p>
                     </div>
                 </div>
 

@@ -9,6 +9,7 @@ import {
 import Home from './components/Homepage/Home';
 import Navbar from './components/Navbar';
 import Login from './components/UserSign/Login';
+import SignUp from './components/UserSign/SignUp';
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                     <Routes>
                         <Route path='/' element={<Home />} />
                         <Route path='/login' element={<Login />} />
+                        <Route path='/signup' element={<SignUp />} />
                     </Routes>
                 </Router>
             </UserState>

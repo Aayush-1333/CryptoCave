@@ -19,8 +19,24 @@ export default function UserState(props) {
     }
 
 
+    const UserSignUp = async (signUpData) => {
+        const response = await fetch("", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(...signUpData)
+        })
+
+        if (response.ok)
+            console.log("Account created successfully!")
+        else
+            console.log("Account creation failed!")
+    }
+
+
     return (
-        <UserContext.Provider value={{ UserLogin }}>
+        <UserContext.Provider value={{ UserLogin, UserSignUp }}>
             {props.children}
         </UserContext.Provider>
     )
