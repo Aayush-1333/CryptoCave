@@ -9,7 +9,7 @@ export default function UserState(props) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(...loginData)
+            body: JSON.stringify({ ...loginData })
         })
 
         if (response.ok)
@@ -20,12 +20,12 @@ export default function UserState(props) {
 
 
     const UserSignUp = async (signUpData) => {
-        const response = await fetch("", {
+        const response = await fetch("http://192.168.1.37:5000/api/users/create-user", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(...signUpData)
+            body: JSON.stringify({ ...signUpData })
         })
 
         if (response.ok)

@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-// import UserContext from '../../context/UserContext'
+import React, { useContext, useState } from 'react'
+import UserContext from '../../context/UserContext'
 
 export default function SignUp() {
 
@@ -12,12 +12,12 @@ export default function SignUp() {
 
     const [passwdStyle, setPasswdStyle] = useState("password")
 
-    // const { UserSignUp } = useContext(UserContext)
+    const { UserSignUp } = useContext(UserContext)
 
     const SubmitForm = (e) => {
         e.preventDefault()
         console.log(signData)
-        // UserSignUp(signData)
+        UserSignUp(signData)
         ClearForm()
     }
 

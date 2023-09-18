@@ -1,9 +1,11 @@
 const express = require('express')
 const router = express.Router()
+require("dotenv").config()
 const Transactions = require("../models/Transactions")
+const api_key = process.env.API_KEY
 
 router.get("/get-daily-prices", async (req, res) => {
-    const response = await fetch("https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=BTC&market=USD&apikey=712AIWNX11SF1RSQ")
+    const response = await fetch(`https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=BTC&market=USD&apikey=${api_key}`)
 
     const result = await response.json()
 
