@@ -18,7 +18,7 @@ export default function Navbar() {
     }
 
     return (
-        <div className='grid grid-rows-1 grid-cols-2 md:grid-cols-7 bg-gradient-to-br from-indigo-300 to-indigo-500 dark:from-zinc-500 dark:to-zinc-800 text-xs md:text-lg'>
+        <div className='_navbar'>
 
             <nav className='col md:col-span-6 text-center self-center md:ml-40 p-5 md:space-x-8 font-bold'>
 
@@ -41,9 +41,9 @@ export default function Navbar() {
             </nav>
 
             <div className='col self-center space-x-2 md:space-x-4 p-1 md:p-5 text-right text-white'>
-                <Link to='/login' className='border-2 border-black font-bold bg-gradient-to-r dark:bg-slate-600 dark:text-yellow-500 p-2 rounded-2xl opacity-60 hover:opacity-100'>Login</Link>
+                <Link to='/login' className='_login-btn'>Login</Link>
 
-                <button type='button' onClick={ChangeBg} className='text-2xl border-2 border-black bg-black dark:bg-white dark:text-black px-3 py-1 rounded-full opacity-60 hover:opacity-100'>{bg}</button>
+                <button type='button' onClick={ChangeBg} className='_bg-change-btn'>{bg}</button>
             </div>
         </div>
     )

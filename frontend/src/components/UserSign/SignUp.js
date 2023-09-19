@@ -9,9 +9,7 @@ export default function SignUp() {
         "phone_no": "",
         "password": ""
     })
-
     const [passwdStyle, setPasswdStyle] = useState("password")
-
     const { UserSignUp } = useContext(UserContext)
 
     const SubmitForm = (e) => {

@@ -1,5 +1,6 @@
 import React from 'react'
 import UserContext from './UserContext'
+import { redirect } from 'react-router-dom'
 
 export default function UserState(props) {
 
@@ -28,10 +29,15 @@ export default function UserState(props) {
             body: JSON.stringify({ ...signUpData })
         })
 
-        if (response.ok)
+        if (response.ok) {
             console.log("Account created successfully!")
-        else
+            return redirect("/login")
+        }
+
+        else {
             console.log("Account creation failed!")
+            return redirect("/signup")
+        }
     }
 
 
