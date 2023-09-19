@@ -18,7 +18,7 @@ export default function Services() {
 
             <div id='_services' className="flex flex-wrap p-5 gap-6 justify-around text-sm md:text-xl">
 
-                <Link to='/' className='opacity-90 hover:opacity-100' onMouseOver={() => { setOp1('100') }} onMouseLeave={() => { setOp1('0') }}>
+                <Link to='/crypto-stock-prices' className='opacity-90 hover:opacity-100' onMouseOver={() => { setOp1('100') }} onMouseLeave={() => { setOp1('0') }}>
                     <div className='_title-card'>
                         <h3 className='font-bold'>Check out prices</h3>
                         <br />

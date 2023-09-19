@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import UserContext from '../../context/UserContext'
+import { useNavigate } from "react-router-dom"
 
 export default function SignUp() {
 
@@ -11,12 +12,15 @@ export default function SignUp() {
     })
     const [passwdStyle, setPasswdStyle] = useState("password")
     const { UserSignUp } = useContext(UserContext)
+    const navigate = useNavigate()
 
     const SubmitForm = (e) => {
         e.preventDefault()
         console.log(signData)
-        UserSignUp(signData)
+        const result = UserSignUp(signData)
         ClearForm()
+        if (result)
+            navigate("/login")
     }
 
     const OnChange = (e) => {

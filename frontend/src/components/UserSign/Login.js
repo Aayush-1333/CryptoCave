@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
-// import UserContext from '../../context/UserContext';
-
+import UserContext from '../../context/UserContext';
+import { useNavigate } from "react-router-dom"
 
 export default function Login() {
 
@@ -11,7 +11,8 @@ export default function Login() {
         password: ""
     })
 
-    // const { UserLogin } = useContext(UserContext)
+    const { UserLogin } = useContext(UserContext)
+    const navigate = useNavigate()
 
     const ChangePasswdStyle = () => {
         if (passwdStyle === "password")
@@ -23,7 +24,11 @@ export default function Login() {
     const SubmitForm = (e) => {
         e.preventDefault()
         console.log(loginData)
-        // UserLogin(loginData)
+        const result = UserLogin(loginData)
+
+        if (result){
+            navigate("/")
+        }
     }
 
     const OnChange = (e) => {
@@ -53,7 +58,7 @@ export default function Login() {
 
 
                     <div className='self-center space-x-8 my-6'>
-                        <button disabled={true} type='submit' className='bg-white opacity-60 hover:opacity-100 p-1 border border-3 rounded-lg'>Login</button>
+                        <button type='submit' className='bg-white opacity-60 hover:opacity-100 p-1 border border-3 rounded-lg'>Login</button>
 
                         <button type='submit' className='bg-white opacity-60 hover:opacity-100 p-1 border border-3 rounded-lg'>Back</button>
                     </div>

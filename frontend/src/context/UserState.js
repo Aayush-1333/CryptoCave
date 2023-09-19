@@ -1,11 +1,10 @@
 import React from 'react'
 import UserContext from './UserContext'
-import { redirect } from 'react-router-dom'
 
 export default function UserState(props) {
 
     const UserLogin = async (loginData) => {
-        const response = await fetch("", {
+        const response = await fetch("http://192.168.1.37:5000/api/users/get-user", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -13,10 +12,14 @@ export default function UserState(props) {
             body: JSON.stringify({ ...loginData })
         })
 
-        if (response.ok)
+        if (response.ok) {
             console.log("Login successfully!")
-        else
+            return true
+        }
+        else {
             console.log("Login failed!")
+            return false
+        }
     }
 
 
@@ -31,12 +34,12 @@ export default function UserState(props) {
 
         if (response.ok) {
             console.log("Account created successfully!")
-            return redirect("/login")
+            return true
         }
 
         else {
             console.log("Account creation failed!")
-            return redirect("/signup")
+            return false
         }
     }
 
