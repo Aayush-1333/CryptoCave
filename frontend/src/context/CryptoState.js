@@ -4,7 +4,7 @@ import CryptoContext from './CryptoContext'
 export default function UserState(props) {
 
     const FetchPrices = async (stock_options) => {
-        const response = await fetch("http://192.168.1.37:5000/api/cryptocurrency/get-daily-prices", {
+        const response = await fetch("http://localhost:5000/api/cryptocurrency/get-daily-prices", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

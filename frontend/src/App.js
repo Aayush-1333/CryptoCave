@@ -8,9 +8,8 @@ import {
 } from 'react-router-dom'
 
 import Home from './components/Homepage/Home';
+import Users from './components/UserSign/Users';
 import Navbar from './components/Navbar';
-import Login from './components/UserSign/Login';
-import SignUp from './components/UserSign/SignUp';
 import Prices from './components/CryptoStocks/Prices';
 
 function App() {
@@ -22,8 +21,7 @@ function App() {
                         <Navbar />
                         <Routes>
                             <Route path='/' element={<Home />} />
-                            <Route path='/login' element={<Login />} />
-                            <Route path='/signup' element={<SignUp />} />
+                            <Route path='/users/*' element={<Users />} />
                             <Route path='/crypto-stock-prices' element={<Prices />} />
                         </Routes>
                     </Router>

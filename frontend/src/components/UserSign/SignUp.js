@@ -4,23 +4,14 @@ import { useNavigate } from "react-router-dom"
 
 export default function SignUp() {
 
-    const [signData, setSignData] = useState({
-        "username": "",
-        "email": "",
-        "phone_no": "",
-        "password": ""
-    })
     const [passwdStyle, setPasswdStyle] = useState("password")
-    const { UserSignUp } = useContext(UserContext)
+    const { UserSignUp, signData, setSignData } = useContext(UserContext)
     const navigate = useNavigate()
 
-    const SubmitForm = (e) => {
+    const SubmitForm = async (e) => {
         e.preventDefault()
-        console.log(signData)
-        const result = UserSignUp(signData)
         ClearForm()
-        if (result)
-            navigate("/login")
+        navigate("/users/verify")
     }
 
     const OnChange = (e) => {

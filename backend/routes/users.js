@@ -9,9 +9,9 @@ router.post('/create-user', async (req, res) => {
     const userAcc = await Users.findOne({ 'email': req.body.email })
 
     // checking if the email already exist
-    if (userAcc) {
+    if (userAcc)
         return res.status(400).send('User account already exist')
-    }
+
     else {
         const salt = await bcrypt.genSalt(10)
 
@@ -24,7 +24,6 @@ router.post('/create-user', async (req, res) => {
 
         return res.status(200).send('User created successfully')
     }
-
 })
 
 
@@ -34,12 +33,16 @@ router.post('/get-user', async (req, res) => {
     const response = await Users.findOne({ 'email': req.body.email })
 
     //comparing the hash values of given password and stored password
-    const check_pass = bcrypt.compareSync(req.body.password, response.password)
-
-    if (check_pass)
-        return res.status(200).send("User data fetched successfully")
+    if (response) {
+        const check_pass = bcrypt.compareSync(req.body.password, response.password)
+    
+        if (check_pass)
+            return res.status(200).json({ "username": response.username, "phone_no": response.phone_no, "email": response.email })
+        else
+            return res.status(401).send("Invalid credentials")
+    }
     else
-        return res.status(401).send("invalid credentials")
+        return res.status(400).send("Bad Request!")
 })
 
 

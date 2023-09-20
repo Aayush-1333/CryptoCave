@@ -14,7 +14,11 @@ export default function Prices() {
 
     const SubmitForm = async (e) => {
         e.preventDefault()
-        setStockData(await FetchPrices(stockOps))
+        try {
+            setStockData(await FetchPrices(stockOps))
+        } catch (error) {
+            setStockData("")
+        }
     }
 
     const OnChange = (e) => {
@@ -22,19 +26,20 @@ export default function Prices() {
     }
 
     return (
-        <div className='p-5 bg-yellow-500 dark:bg-zinc-700'>
-            <form onSubmit={SubmitForm} className='container flex flex-col'>
-                <label htmlFor="freq">frequency</label>
-                <input type="text" name='freq' value={stockOps.freq} onChange={OnChange} />
+        <div className={`flex flex-col p-5 bg-orange-400 dark:bg-zinc-700 dark:text-white ${stockData === "" ? 'h-screen' : ''}`}>
+            <h1 className='text-4xl mb-12'>Check out prices!</h1>
+            
+            <form onSubmit={SubmitForm} className='container self-center flex flex-col space-y-4'>
+                <label htmlFor="freq">Frequency</label>
+                <input className='dark:bg-black rounded-xl p-1 mt-2' type="text" name='freq' value={stockOps.freq} onChange={OnChange} />
 
-                <label htmlFor="currency">currency</label>
-                <input type="text" name='currency' value={stockOps.currency} onChange={OnChange} />
+                <label htmlFor="currency">Currency</label>
+                <input className='dark:bg-black rounded-xl p-1 mt-2' type="text" name='currency' value={stockOps.currency} onChange={OnChange} />
 
-                <label htmlFor="market">market</label>
-                <input type="text" name='market' value={stockOps.market} onChange={OnChange} />
-                <br />
+                <label htmlFor="market">Market</label>
+                <input className='dark:bg-black rounded-xl p-1 mt-2' type="text" name='market' value={stockOps.market} onChange={OnChange} />
 
-                <button className='bg-green-500 hover:bg-green-700' type='submit'>get prices</button>
+                <button className='bg-green-500 hover:bg-green-700 dark:bg-slate-800 dark:hover:bg-slate-900 self-center mt-4 p-2 rounded-xl' type='submit'>get prices</button>
             </form>
 
             <div className='my-10'>
@@ -52,7 +57,7 @@ export default function Prices() {
                         </div>
                         <br />
                     </div>
-                }) : "nothing"}
+                }) : "No Results to show"}
             </div>
         </div>
     )

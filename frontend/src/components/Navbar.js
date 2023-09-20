@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import UserContext from '../context/UserContext'
 
 export default function Navbar() {
 
     const [bg, setBg] = useState(String.fromCharCode(9789))
     const currLoc = useLocation()
+    const { loginState } = useContext(UserContext)
 
     const ChangeBg = () => {
         let htmlTag = document.documentElement
@@ -41,7 +43,7 @@ export default function Navbar() {
             </nav>
 
             <div className='col self-center space-x-2 md:space-x-4 p-1 md:p-5 text-right text-white'>
-                <Link to='/login' className='_login-btn'>Login</Link>
+                {loginState ? <Link to='/user-dashboard' className='_login-btn'>Profile</Link> : <Link to='/users/login' className='_login-btn'>Login</Link>}
 
                 <button type='button' onClick={ChangeBg} className='_bg-change-btn'>{bg}</button>
             </div>

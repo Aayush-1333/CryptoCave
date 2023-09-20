@@ -21,14 +21,16 @@ export default function Login() {
             setPasswdStyle("password")
     }
 
-    const SubmitForm = (e) => {
+    const SubmitForm = async (e) => {
         e.preventDefault()
-        console.log(loginData)
-        const result = UserLogin(loginData)
-
-        if (result){
-            navigate("/")
-        }
+        const result = await UserLogin(loginData)
+        setLoginData({
+            email: "",
+            password: ""
+        })
+        
+        if (result)
+            navigate("/users/user-dashboard")
     }
 
     const OnChange = (e) => {
@@ -60,11 +62,11 @@ export default function Login() {
                     <div className='self-center space-x-8 my-6'>
                         <button type='submit' className='bg-white opacity-60 hover:opacity-100 p-1 border border-3 rounded-lg'>Login</button>
 
-                        <button type='submit' className='bg-white opacity-60 hover:opacity-100 p-1 border border-3 rounded-lg'>Back</button>
+                        <Link to='/' className='bg-white opacity-60 hover:opacity-100 p-1 border border-3 rounded-lg'>Back</Link>
                     </div>
 
                     <div className='self-center'>
-                        <p>Don't have an account? <Link to='/signup' className='text-blue-700 hover:text-blue-500'>Sign Up</Link></p>
+                        <p>Don't have an account? <Link to='/users/signup' className='text-blue-700 hover:text-blue-500'>Sign Up</Link></p>
                     </div>
                 </div>
 
