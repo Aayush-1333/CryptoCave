@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 const {Schema} = mongoose
 
-const TransactionSchema = new Schema({
+const CryptocurrencySchema = new Schema({
     date: {
         type: String,
         required: true
@@ -38,4 +38,4 @@ const TransactionSchema = new Schema({
     }
 })
 
-module.exports = mongoose.model("Transactions", TransactionSchema)
+module.exports = mongoose.model("Cryptocurrencies", CryptocurrencySchema)

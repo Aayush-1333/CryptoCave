@@ -9,7 +9,7 @@ const port = process.env.PORT
 
 app.use(express.json())
 app.use(cors())
-app.use("/api/cryptocurrency", require("./routes/transactions"))
+app.use("/api/cryptocurrency", require("./routes/cryptoCurrencies"))
 app.use("/api/users", require("./routes/users"))
 
 connectToMongo()

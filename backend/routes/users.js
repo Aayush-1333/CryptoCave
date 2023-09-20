@@ -2,6 +2,21 @@ const express = require('express')
 const router = express.Router()
 const Users = require("../models/Users")
 const bcrypt = require('bcryptjs')
+const nodemailer = require('nodemailer')
+const otp_gen = require('otp-generator')
+require('dotenv').config()
+
+
+// CREATING A POSTMAN
+const MAIL_SETTINGS = {
+    service: 'gmail',
+    auth: {
+        user: process.env.MAIL_NAME,
+        pass: process.env.MAIL_PASSWD,
+    },
+}
+
+const transporter = nodemailer.createTransport(MAIL_SETTINGS);
 
 // route to create user
 router.post('/create-user', async (req, res) => {
@@ -35,7 +50,7 @@ router.post('/get-user', async (req, res) => {
     //comparing the hash values of given password and stored password
     if (response) {
         const check_pass = bcrypt.compareSync(req.body.password, response.password)
-    
+
         if (check_pass)
             return res.status(200).json({ "username": response.username, "phone_no": response.phone_no, "email": response.email })
         else
@@ -59,6 +74,30 @@ router.delete('/delete-user', async (req, res) => {
 router.put('/update-user', async (req, res) => {
     const response = await Users.findOneAndUpdate({ 'email': req.body.email }, { ...req.body })
     return res.status(200).json(response)
+})
+
+
+router.post('/verify-otp', async (req, res) => {
+    try {
+        const otp = otp_gen.generate(4, { upperCaseAlphabets: false, specialChars: false, lowerCaseAlphabets: false });
+
+        let info = await transporter.sendMail({
+            from: MAIL_SETTINGS.auth.user,
+            to: req.body.email,
+            subject: 'Hello ✔',
+            html: `
+        <div
+          class="container"
+          style="max-width: 90%; margin: auto; padding-top: 20px"
+        >
+          <h3>Here is the OTP: ${otp}</h3>
+     </div>`
+        })
+
+        return res.status(200).json(otp)
+    } catch (err) {
+        return res.status(500).send(err)
+    }
 })
 
 module.exports = router

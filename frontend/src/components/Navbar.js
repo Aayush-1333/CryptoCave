@@ -43,7 +43,7 @@ export default function Navbar() {
             </nav>
 
             <div className='col self-center space-x-2 md:space-x-4 p-1 md:p-5 text-right text-white'>
-                {loginState ? <Link to='/user-dashboard' className='_login-btn'>Profile</Link> : <Link to='/users/login' className='_login-btn'>Login</Link>}
+                {loginState ? <Link to='/users/user-dashboard' className='_login-btn'>Profile</Link> : <Link to='/users/login' className='_login-btn'>Login</Link>}
 
                 <button type='button' onClick={ChangeBg} className='_bg-change-btn'>{bg}</button>
             </div>

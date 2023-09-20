@@ -5,6 +5,7 @@ export default function UserState(props) {
 
     const [userData, setUserData] = useState(undefined)
     const [loginState, setLoginState] = useState(false)
+    const [generatedOtp, setGeneratedOtp] = useState("")
     const [signData, setSignData] = useState({
         "username": "",
         "email": "",
@@ -36,6 +37,7 @@ export default function UserState(props) {
 
 
     const UserSignUp = async () => {
+        console.log(signData)
         const response = await fetch("http://localhost:5000/api/users/create-user", {
             method: "POST",
             headers: {
@@ -46,6 +48,12 @@ export default function UserState(props) {
 
         if (response.ok) {
             console.log("Account created successfully!")
+            setSignData({
+                "username": "",
+                "email": "",
+                "phone_no": "",
+                "password": ""
+            })
             return true
         }
 
@@ -62,8 +70,22 @@ export default function UserState(props) {
     }
 
 
+    const SendOtp = async () => {
+        const response = await fetch("http://localhost:5000/api/users/verify-otp", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ "email": signData.email })
+        })
+
+        const result = await response.json()
+        setGeneratedOtp(result)
+    }
+
+
     return (
-        <UserContext.Provider value={{ UserLogin, UserSignUp, UserLogout, userData, loginState, signData, setSignData }}>
+        <UserContext.Provider value={{ UserLogin, UserSignUp, UserLogout, userData, loginState, signData, setSignData, SendOtp, generatedOtp }}>
             {props.children}
         </UserContext.Provider>
     )

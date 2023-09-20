@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CryptoContext from './CryptoContext'
 
 export default function UserState(props) {
+
+    const [loading, setLoading] = useState(false)
 
     const FetchPrices = async (stock_options) => {
         const response = await fetch("http://localhost:5000/api/cryptocurrency/get-daily-prices", {
@@ -11,13 +13,17 @@ export default function UserState(props) {
             },
             body: JSON.stringify({ ...stock_options })
         })
-        const result = await response.json()
-
-        return result
+        setLoading(false)
+        if (response.ok) {
+            const result = await response.json()
+            return result
+        } else {
+            return ""
+        }
     }
 
     return (
-        <CryptoContext.Provider value={{ FetchPrices }}>
+        <CryptoContext.Provider value={{ FetchPrices, loading, setLoading }}>
             {props.children}
         </CryptoContext.Provider>
     )

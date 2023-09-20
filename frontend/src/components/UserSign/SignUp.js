@@ -5,12 +5,12 @@ import { useNavigate } from "react-router-dom"
 export default function SignUp() {
 
     const [passwdStyle, setPasswdStyle] = useState("password")
-    const { UserSignUp, signData, setSignData } = useContext(UserContext)
+    const { signData, setSignData, SendOtp } = useContext(UserContext)
     const navigate = useNavigate()
 
     const SubmitForm = async (e) => {
         e.preventDefault()
-        ClearForm()
+        SendOtp()
         navigate("/users/verify")
     }
 
