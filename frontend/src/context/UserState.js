@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import UserContext from './UserContext'
+const host = process.env.HOST || 'localhost'
+const port = process.env.PORT || 5000
 
 export default function UserState(props) {
 
@@ -14,7 +16,7 @@ export default function UserState(props) {
     })
 
     const UserLogin = async (loginData) => {
-        const response = await fetch("http://localhost:5000/api/users/get-user", {
+        const response = await fetch(`http://${host}:${port}/api/users/get-user`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -38,7 +40,7 @@ export default function UserState(props) {
 
     const UserSignUp = async () => {
         console.log(signData)
-        const response = await fetch("http://localhost:5000/api/users/create-user", {
+        const response = await fetch(`http://${host}:${port}/api/users/create-user`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -71,7 +73,7 @@ export default function UserState(props) {
 
 
     const SendOtp = async () => {
-        const response = await fetch("http://localhost:5000/api/users/verify-otp", {
+        const response = await fetch(`http://${host}:${port}/api/users/verify-otp`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

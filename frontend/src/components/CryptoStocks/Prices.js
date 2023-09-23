@@ -12,7 +12,7 @@ export default function Prices() {
     const { FetchPrices, loading, setLoading } = useContext(CryptoContext)
     const [stockData, setStockData] = useState("")
     let i = 0
-    
+
     const SubmitForm = async (e) => {
         e.preventDefault()
         setLoading(true)
@@ -28,7 +28,7 @@ export default function Prices() {
     }
 
     return (
-        <div className={`flex flex-col p-5 bg-gradient-to-br from-green-500 to-green-800 dark:from-zinc-700 dark:to-zinc-950 dark:text-white ${stockData === "" ? 'h-screen' : ''}`}>
+        <div className={`flex flex-col p-5 bg-gradient-to-br from-green-500 to-green-800 dark:from-zinc-700 dark:to-zinc-950 dark:text-white`}>
             <h1 className='text-4xl mb-12'>Check out prices!</h1>
             <div className='self-center bg-gray-400 dark:bg-zinc-900 px-36 py-5 rounded-xl'>
                 <form onSubmit={SubmitForm} className='flex flex-col space-y-4'>
@@ -76,6 +76,10 @@ export default function Prices() {
                     </div>
                 }) : <h1 className='text-center text-2xl'>No Results to show</h1>}
             </div>}
+
+            <div className='flex justify-center'>
+                <iframe className='rounded-xl' title="BTC rate in USD" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=90673f20-0049-43a0-a304-c15e788fd8e5&autoAuth=true&ctid=8b178bc9-159c-4211-9747-f0ae84fa3369" allowFullScreen={true}></iframe>
+            </div>
         </div>
     )
 }
