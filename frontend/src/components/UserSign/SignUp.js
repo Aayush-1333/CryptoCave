@@ -35,8 +35,8 @@ export default function SignUp() {
     }
 
     return (
-        <div className='container-fluid flex justify-center bg-gradient-to-tr p-16 from-green-300 to-green-500 dark:from-slate-500 dark:to-slate-900'>
-            <form className='flex flex-col bg-purple-400 dark:bg-yellow-600 gap-8 px-14 py-6 md:px-64 md:py-20 rounded-2xl' onSubmit={SubmitForm}>
+        <div className='container-fluid flex justify-center p-16 bg-white dark:bg-black'>
+            <form className='flex flex-col bg-indigo-400 dark:bg-yellow-600 gap-8 px-14 py-6 md:px-64 md:py-20 rounded-2xl' onSubmit={SubmitForm}>
 
                 <h1 className='md:text-4xl font-bold'>Let's register!</h1>
 

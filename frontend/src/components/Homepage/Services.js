@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom'
 
 export default function Services() {
 
-    const [op1, setOp1] = useState('0')
-    const [op2, setOp2] = useState('0')
-    const [op3, setOp3] = useState('0')
+    const [underline1, setUnderline1] = useState('')
+    const [underline2, setUnderline2] = useState('')
+    const [underline3, setUnderline3] = useState('')
 
     return (
-        <div className="_services-bg">
-
+        <div className='bg-blue-200 dark:bg-black'>
             <div className='flex flex-col gap-4'>
                 <h1 className='_site-title'>CryptoCave - Start exploring cryptocurrencies</h1>
 
@@ -18,27 +17,27 @@ export default function Services() {
 
             <div id='_services' className="flex flex-wrap p-5 gap-6 justify-around text-sm md:text-xl">
 
-                <Link to='/crypto-stock-prices' className='opacity-90 hover:opacity-100' onMouseOver={() => { setOp1('100') }} onMouseLeave={() => { setOp1('0') }}>
+                <Link to='/crypto-stock-prices' className='opacity-90 hover:opacity-100'>
                     <div className='_title-card'>
-                        <h3 className='font-bold'>Check out prices</h3>
+                        <h3 className='font-bold hover:underline'>Check out prices</h3>
                         <br />
-                        <p className={`opacity-${op1}`}>Use the API to know about <br /> the current ongoing stock prices</p>
+                        <p>Use the API to know about <br /> the current ongoing stock prices</p>
                     </div>
                 </Link>
 
-                <Link to='/' className='opacity-90 hover:opacity-100' onMouseOver={() => { setOp2('100') }} onMouseLeave={() => { setOp2('0') }}>
+                <Link to='/' className='opacity-90 hover:opacity-100'>
                     <div className='_title-card'>
-                        <h3 className='font-bold'>Create Portfolio</h3>
+                        <h3 className='font-bold hover:underline'>Create Portfolio</h3>
                         <br />
-                        <p className={`opacity-${op2}`}>Sign-up and start creating <br /> your own portfolio using wallet</p>
+                        <p>Sign-up and start creating <br /> your own portfolio using wallet</p>
                     </div>
                 </Link>
 
-                <Link to='/' className='opacity-90 hover:opacity-100' onMouseOver={() => { setOp3('100') }} onMouseLeave={() => { setOp3('0') }}>
+                <Link to='/' className='opacity-90 hover:opacity-100'>
                     <div className='_title-card'>
-                        <h3 className='font-bold'>Create Wallet</h3>
+                        <h3 className='font-bold hover:underline'>Create Wallet</h3>
                         <br />
-                        <p className={`opacity-${op3}`}>Add some balance to the wallet <br /> to start trading cryptocurrencies</p>
+                        <p>Add some balance to the wallet <br /> to start trading cryptocurrencies</p>
                     </div>
                 </Link>
 

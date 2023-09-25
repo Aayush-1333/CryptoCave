@@ -4,7 +4,7 @@ require("dotenv").config()
 const api_key = process.env.API_KEY
 
 
-router.post("/get-daily-prices", async (req, res) => {
+router.post("/get-crypto-prices", async (req, res) => {
     try {
         const response = await fetch(`https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_${req.body.freq.toUpperCase()}&symbol=${req.body.currency}&market=${req.body.market}&apikey=${api_key}`)
 

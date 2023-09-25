@@ -8,41 +8,64 @@
 }
 
 ._home-bg {
-    @apply bg-gradient-to-r from-indigo-100 to-indigo-400 dark:from-slate-700 dark:to-slate-950 space-y-6
+    @apply  bg-white dark:bg-gradient-to-r dark:from-slate-900 dark:to-slate-950 space-y-6
 }
 
 ._navbar {
-    @apply grid grid-rows-1 grid-cols-2 md:grid-cols-7 bg-gradient-to-br from-indigo-400 to-indigo-800 dark:from-zinc-500 dark:to-zinc-800 text-xs md:text-lg
-}
-
-._services-bg {
-    @apply bg-[url('https://t3.ftcdn.net/jpg/02/56/27/88/360_F_256278888_uqEBHJRASsR75xwf0QmUavcAZ6mQdcON.jpg')] border-b-8 border-indigo-950 rounded-bl-[220px]
+    @apply grid grid-rows-1 grid-cols-2 md:grid-cols-7 bg-white border-b-2 dark:border-black dark:bg-gradient-to-br dark:from-zinc-700 dark:to-zinc-950 text-xs md:text-lg
 }
 
 ._site-title {
-    @apply self-start text-2xl bg-white italic dark:text-yellow-500 font-bold dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-950 md:text-4xl p-3 m-4 rounded-xl
+    @apply self-start text-2xl italic dark:text-yellow-500 font-bold md:text-4xl p-3 m-4 rounded-xl
 }
 
 ._services-head {
-    @apply self-center bg-white dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-950 dark:text-yellow-500 font-bold text-xl md:text-3xl p-3 rounded-xl
+    @apply self-center dark:text-yellow-500 font-bold text-xl md:text-3xl p-3 rounded-xl
 }
 
 ._title-card {
-    @apply bg-gradient-to-br from-green-200 to-green-500 dark:from-yellow-600 dark:to-yellow-800 p-5 rounded-xl dark:text-white
+    @apply border-black dark:bg-gradient-to-br dark:from-yellow-600 dark:to-yellow-800 p-5 rounded-xl dark:text-white
 }
 
 ._features-title {
-    @apply self-start bg-gradient-to-br from-indigo-200 to-indigo-400 dark:from-gray-800 dark:to-gray-950 dark:text-yellow-500 text-3xl my-4 p-3 rounded-xl
+    @apply self-start text-black dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-950 dark:text-yellow-500 text-3xl my-4 p-3 rounded-xl
 }
 
 ._feature-info {
-    @apply p-4 space-y-4 dark:bg-gradient-to-r dark:text-white dark:from-black dark:to-gray-800
+    @apply p-4 space-y-4 border-black dark:text-white opacity-0
+}
+
+._feature-info-appear {
+    animation: appear 0.5s ease-in-out 1 normal forwards;
 }
 
 ._login-btn {
-    @apply border-2 border-black font-bold bg-indigo-800 dark:bg-slate-600 dark:text-yellow-500 p-2 rounded-2xl opacity-60 hover:opacity-100
+    @apply border-2 border-black font-bold bg-gradient-to-b from-indigo-500 to-indigo-600 dark:from-slate-600 dark:to-slate-900 dark:text-yellow-500 p-2 rounded-2xl opacity-60 hover:opacity-100
 }
 
 ._bg-change-btn {
-    @apply text-2xl border-2 border-black bg-black dark:bg-gray-300 dark:text-black px-3 py-1 rounded-full opacity-60 hover:opacity-100
+    @apply text-2xl border-2 border-black bg-black dark:bg-gray-300 dark:text-black w-12 h-12 rounded-full opacity-60 hover:opacity-100
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0%;
+        transform: translate(-30px);
+    }
+
+    25% {
+        opacity: 25%;
+    }
+
+    50% {
+        opacity: 50%;
+    }
+
+    75% {
+        opacity: 75%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
 }

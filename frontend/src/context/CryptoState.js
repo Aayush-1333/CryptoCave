@@ -6,7 +6,7 @@ export default function UserState(props) {
     const [loading, setLoading] = useState(false)
 
     const FetchPrices = async (stock_options) => {
-        const response = await fetch("http://localhost:5000/api/cryptocurrency/get-daily-prices", {
+        const response = await fetch("http://localhost:5000/api/cryptocurrency/get-crypto-prices", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
