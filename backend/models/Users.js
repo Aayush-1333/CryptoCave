@@ -2,6 +2,11 @@ const mongoose = require("mongoose")
 const { Schema } = mongoose
 
 const UserSchema = new Schema({
+    created: {
+        type: Schema.Types.Date,
+        default: new Date()
+    },
+
     username: {
         type: String,
         required: true
