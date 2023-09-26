@@ -24,7 +24,7 @@
 }
 
 ._title-card {
-    @apply border-black dark:bg-gradient-to-br dark:from-yellow-600 dark:to-yellow-800 p-5 rounded-xl dark:text-white
+    @apply border-black p-5 dark:text-white
 }
 
 ._features-title {

@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 
 export default function Services() {
 
-    const [underline1, setUnderline1] = useState('')
-    const [underline2, setUnderline2] = useState('')
-    const [underline3, setUnderline3] = useState('')
+    const [style1, setStyle1] = useState('dark:border-black')
+    const [style2, setStyle2] = useState('dark:border-black')
+    const [style3, setStyle3] = useState('dark:border-black')
 
     return (
-        <div className='bg-blue-200 dark:bg-black'>
+        <div className='bg-blue-200 dark:bg-black' style={{ height: '650px' }}>
             <div className='flex flex-col gap-4'>
                 <h1 className='_site-title'>CryptoCave - Start exploring cryptocurrencies</h1>
 
@@ -17,28 +17,31 @@ export default function Services() {
 
             <div id='_services' className="flex flex-wrap p-5 gap-6 justify-around text-sm md:text-xl">
 
-                <Link to='/crypto-stock-prices' className='opacity-90 hover:opacity-100'>
+                <Link to='/crypto-stock-prices' className='dark:opacity-70' onMouseEnter={() => { setStyle1('border border-black dark:border-white') }} onMouseLeave={() => { setStyle1('dark:border-black') }} >
                     <div className='_title-card'>
-                        <h3 className='font-bold hover:underline'>Check out prices</h3>
+                        <h3 className='font-bold'>Check out prices</h3>
                         <br />
                         <p>Use the API to know about <br /> the current ongoing stock prices</p>
                     </div>
+                    <hr className={`${style1}`} />
                 </Link>
 
-                <Link to='/' className='opacity-90 hover:opacity-100'>
+                <Link to='/' className='dark:opacity-70' onMouseEnter={() => { setStyle2('border border-black dark:border-white') }} onMouseLeave={() => { setStyle2('dark:border-black') }}>
                     <div className='_title-card'>
-                        <h3 className='font-bold hover:underline'>Create Portfolio</h3>
+                        <h3 className='font-bold'>Create Portfolio</h3>
                         <br />
                         <p>Sign-up and start creating <br /> your own portfolio using wallet</p>
                     </div>
+                    <hr className={`${style2}`} />
                 </Link>
 
-                <Link to='/' className='opacity-90 hover:opacity-100'>
+                <Link to='/' className='dark:opacity-70' onMouseEnter={() => { setStyle3('border border-black dark:border-white') }} onMouseLeave={() => { setStyle3('dark:border-black') }}>
                     <div className='_title-card'>
-                        <h3 className='font-bold hover:underline'>Create Wallet</h3>
+                        <h3 className='font-bold'>Create Wallet</h3>
                         <br />
                         <p>Add some balance to the wallet <br /> to start trading cryptocurrencies</p>
                     </div>
+                    <hr className={`${style3}`} />
                 </Link>
 
             </div>

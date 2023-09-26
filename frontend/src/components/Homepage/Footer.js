@@ -22,10 +22,10 @@ export default function Footer() {
           <h1 className='text-xl font-semibold underline'>Softwares</h1>
           <br />
           <div className="flex flex-col gap-2">
-            <span><a href="https://react.dev/" target='_blank' rel='noreferrer' className='hover:text-blue-500'></a>ReactJS</span>
-            <span><a href="https://www.mongodb.com/atlas" target='_blank' rel='noreferrer' className='hover:text-blue-500'></a>MongoDB</span>
-            <span><a href="http://expressjs.com/" target='_blank' rel='noreferrer' className='hover:text-blue-500'></a>ExpressJS</span>
-            <span><a href="https://nodejs.org/en" target='_blank' rel='noreferrer' className='hover:text-blue-500'></a>NodeJS</span>
+            <span><a href="https://react.dev/" target='_blank' rel='noreferrer' className='hover:text-blue-500'>ReactJS</a></span>
+            <span><a href="https://www.mongodb.com/atlas" target='_blank' rel='noreferrer' className='hover:text-blue-500'>MongoDB</a></span>
+            <span><a href="http://expressjs.com/" target='_blank' rel='noreferrer' className='hover:text-blue-500'>ExpressJS</a></span>
+            <span><a href="https://nodejs.org/en" target='_blank' rel='noreferrer' className='hover:text-blue-500'>NodeJS</a></span>
           </div>
         </div>
 

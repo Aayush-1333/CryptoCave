@@ -28,7 +28,7 @@ export default function Prices() {
     }
 
     return (
-        <div className={`flex flex-col p-5 bg-gradient-to-br from-green-500 to-green-800 dark:from-zinc-700 dark:to-zinc-950 dark:text-white`}>
+        <div className={`flex flex-col p-5 bg-white dark:bg-black dark:text-white`}>
             <h1 className='text-4xl mb-12'>Check out prices!</h1>
             <div className='self-center bg-gray-400 dark:bg-zinc-900 px-36 py-5 rounded-xl'>
                 <form onSubmit={SubmitForm} className='flex flex-col space-y-4'>
@@ -55,7 +55,7 @@ export default function Prices() {
                         <option value="INR">Indian Rupee (INR)</option>
                     </select>
 
-                    <button className='bg-orange-500 hover:bg-orange-700 dark:bg-slate-800 dark:hover:bg-slate-900 self-center mt-4 p-2 rounded-xl' type='submit'>get prices</button>
+                    <button className='bg-indigo-300 hover:bg-indigo-500 dark:bg-slate-800 dark:hover:bg-slate-900 self-center mt-4 p-2 rounded-xl' type='submit'>get prices</button>
                 </form>
             </div>
 
