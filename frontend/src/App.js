@@ -7,11 +7,13 @@ import {
     Route
 } from 'react-router-dom'
 
+// Other Components
 import Home from './components/Homepage/Home';
 import Users from './components/UserSign/Users';
 import Navbar from './components/Navbar';
 import Prices from './components/CryptoStocks/Prices';
 
+// The main component that routes all other endpoints
 function App() {
     return (
         <div>

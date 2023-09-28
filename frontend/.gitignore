@@ -24,3 +24,7 @@ yarn-error.log*
 
 keys.txt
 .env
+.env*
+.flaskenv*
+!.env.project
+!.env.vault
