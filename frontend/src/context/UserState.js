@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import UserContext from './UserContext'
-const host = process.env.HOST || 'localhost'
-const port = process.env.PORT || 5000
+const host = process.env.REACT_APP_HOST
+const port = process.env.REACT_APP_BACKEND_PORT
 
 export default function UserState(props) {
 

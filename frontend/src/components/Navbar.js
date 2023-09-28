@@ -8,6 +8,7 @@ export default function Navbar() {
     const currLoc = useLocation()
     const { loginState } = useContext(UserContext)
 
+
     const ChangeBg = () => {
         let htmlTag = document.documentElement
 

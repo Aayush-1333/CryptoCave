@@ -12,6 +12,7 @@ app.use(cors())
 app.use("/api/cryptocurrency", require("./routes/cryptoCurrencies"))
 app.use("/api/users", require("./routes/users"))
 
+// 
 connectToMongo()
     .then(() => {
         app.listen(port, () => {

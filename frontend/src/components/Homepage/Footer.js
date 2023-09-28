@@ -13,8 +13,8 @@ export default function Footer() {
           <div className='flex flex-col gap-2'>
             <span><a href="https://github.com/Aayush-1333" target='_blank' rel='noreferrer' className='hover:text-blue-500'>Aayush</a></span>
             <span><a href="https://github.com/Nightowl6969" target='_blank' rel='noreferrer' className='hover:text-blue-500'>Nightowl6969</a></span>
-            <span><a href="https://github.com/YDjedi" target='_blank' rel='noreferrer' className='hover:text-blue-500'></a>YDjedi</span>
-            <span><a href="https://github.com/somangshu-create" className='hover:text-blue-500'></a>Somangshu</span>
+            <span><a href="https://github.com/YDjedi" target='_blank' rel='noreferrer' className='hover:text-blue-500'>YDjedi</a></span>
+            <span><a href="https://github.com/somangshu-create" target='_blank' rel='noreferrer' className='hover:text-blue-500'>Somangshu</a></span>
           </div>
         </div>
 
@@ -33,9 +33,9 @@ export default function Footer() {
           <h1 className='text-xl font-semibold underline'>Other Links</h1>
           <br />
           <div className="flex flex-col gap-2">
-            <span><a href="#" target='_blank' rel='noreferrer' className='hover:text-blue-500'>Link1</a></span>
-            <span><a href="#" target='_blank' rel='noreferrer' className='hover:text-blue-500'>Link2</a></span>
-            <span><a href="#" target='_blank' rel='noreferrer' className='hover:text-blue-500'>Link3</a></span>
+            <span><a href="https://www.coinbase.com/" target='_blank' rel='noreferrer' className='hover:text-blue-500'>Coinbase</a></span>
+            <span><a href="https://www.npmjs.com/" target='_blank' rel='noreferrer' className='hover:text-blue-500'>npm</a></span>
+            <span><a href="https://www.alphavantage.co/" target='_blank' rel='noreferrer' className='hover:text-blue-500'>Alphavantage</a></span>
           </div>
         </div>
 
