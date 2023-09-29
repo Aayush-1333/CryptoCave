@@ -17,7 +17,7 @@ export default function Services() {
 
             <div id='_services' className="flex flex-wrap p-5 gap-6 justify-around text-sm md:text-xl">
 
-                <Link to='/crypto-stock-prices' className='dark:opacity-70' onMouseEnter={() => { setStyle1('border border-black dark:border-white') }} onMouseLeave={() => { setStyle1('dark:border-black') }} >
+                <Link to='/crypto/crypto-stock-prices' className='dark:opacity-70' onMouseEnter={() => { setStyle1('border border-black dark:border-white') }} onMouseLeave={() => { setStyle1('dark:border-black') }} >
                     <div className='_title-card'>
                         <h3 className='font-bold'>Check out prices</h3>
                         <br />

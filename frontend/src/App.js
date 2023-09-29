@@ -11,7 +11,7 @@ import {
 import Home from './components/Homepage/Home';
 import Users from './components/UserSign/Users';
 import Navbar from './components/Navbar';
-import Prices from './components/CryptoStocks/Prices';
+import Crypto from './components/CryptoStocks/Crypto';
 
 // The main component that routes all other endpoints
 function App() {
@@ -24,7 +24,7 @@ function App() {
                         <Routes>
                             <Route path='/' element={<Home />} />
                             <Route path='/users/*' element={<Users />} />
-                            <Route path='/crypto-stock-prices' element={<Prices />} />
+                            <Route path='/crypto/*' element={<Crypto />} />
                         </Routes>
                     </Router>
                 </CryptoState>

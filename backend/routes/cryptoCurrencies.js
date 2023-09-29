@@ -21,7 +21,7 @@ router.post("/get-crypto-prices", async (req, res) => {
             arr = []
             let cryptoStockObject = dailyData[dateKeys[i]]
             arr = {
-                "date": new Date(dateKeys[i]),
+                "date": dateKeys[i],
                 "open": Number(cryptoStockObject[objKeys[0]]),
                 "high": Number(cryptoStockObject[objKeys[2]]),
                 "low": Number(cryptoStockObject[objKeys[4]]),
@@ -33,13 +33,7 @@ router.post("/get-crypto-prices", async (req, res) => {
             cryptoData.push(arr)
         }
 
-
-        await fetch("https://api.powerbi.com/beta/8b178bc9-159c-4211-9747-f0ae84fa3369/datasets/0d46891e-9939-4c8b-8f9a-df68ea8b68ed/rows?experience=power-bi&key=Wgf5C4ujdZyaMsqdGxIWuiFtbMOFFIljcDc0k4NIzjoGsoJ3PnVM7sWn4JzijxAHgB%2BX%2FzX1mQX%2B21gEIX2t8A%3D%3D", {
-            method: "POST",
-            body: JSON.stringify(cryptoData)
-        })
-
-        return res.status(200).json(cryptoData)
+        return res.status(200).json(cryptoData.reverse())
 
     } catch (error) {
         return res.status(500).send(error)

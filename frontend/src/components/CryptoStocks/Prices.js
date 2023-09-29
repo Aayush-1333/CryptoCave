@@ -1,21 +1,71 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import CryptoContext from '../../context/CryptoContext'
 import Spinner from '../Spinner'
+import Chart from 'chart.js/auto';
 
 export default function Prices() {
 
+    // ========= Context variable ========
+    const { FetchPrices, loading, setLoading, result, setResult } = useContext(CryptoContext)
+
+    // ======== State variables =========
+    const [chartObj, setChartObj] = useState(undefined)
     const [stockOps, setStockOps] = useState({
         "freq": "Daily",
         "currency": "BTC",
         "market": "USD"
     })
-    const { FetchPrices, loading, setLoading } = useContext(CryptoContext)
     const [stockData, setStockData] = useState("")
-    let i = 0
 
+    // Function is used to make a 2d Chart to visualize data
+    const MakeChart = () => {
+        let ctx = document.getElementById('my-chart').getContext("2d")
+        try {
+            setChartObj(new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: stockData.map(row => row.date),
+                    datasets: [{
+                        label: 'Stock open values by date',
+                        data: stockData.map(row => row.open),
+                        borderColor: "red",
+                        hoverBackgroundColor: "orange",
+                        backgroundColor: [
+                            "green",
+                            "blue"
+                        ]
+                    },
+                    {
+                        label: 'Stock close values by date',
+                        data: stockData.map(row => row.close),
+                        borderColor: "blue",
+                        hoverBackgroundColor: "pink",
+                        backgroundColor: [
+                            "red",
+                            "blue"
+                        ]
+                    }]
+                }
+            }))
+            setLoading(false)
+
+        } catch (err) {
+            console.log("error: ", err)
+        }
+    }
+
+
+    // Submits the form to update the data
     const SubmitForm = async (e) => {
         e.preventDefault()
+
+        // if chart object does not exists create a new one, else destroy the existing one and create new
+        if (chartObj !== undefined)
+            chartObj.destroy()
+
+        // set loading to true
         setLoading(true)
+
         try {
             setStockData(await FetchPrices(stockOps))
         } catch (error) {
@@ -23,15 +73,28 @@ export default function Prices() {
         }
     }
 
+
+    // applies side-effects to the component on updation of stock data
+    useEffect(() => {
+        if (stockData !== "") {
+            setResult("")
+            MakeChart()
+        }
+    }, [stockData])
+
+
+    // handles the change of fields in the form
     const OnChange = (e) => {
         setStockOps({ ...stockOps, [e.target.name]: e.target.value })
     }
 
+
     return (
         <div className={`flex flex-col p-5 bg-white dark:bg-black dark:text-white`}>
             <h1 className='text-4xl mb-12'>Check out prices!</h1>
-            <div className='self-center bg-gray-400 dark:bg-zinc-900 px-36 py-5 rounded-xl'>
-                <form onSubmit={SubmitForm} className='flex flex-col space-y-4'>
+
+            <div className='flex justify-around'>
+                <form onSubmit={SubmitForm} className='flex flex-col rounded-xl space-y-4 bg-gray-400 dark:bg-zinc-900 px-24 pt-5'>
                     <label htmlFor="freq">Frequency</label>
                     <select name="freq" className='dark:bg-black rounded-xl p-1 mt-2' value={stockOps.freq} onChange={OnChange}>
                         <option value="Daily">Daily</option>
@@ -57,29 +120,13 @@ export default function Prices() {
 
                     <button className='bg-indigo-300 hover:bg-indigo-500 dark:bg-slate-800 dark:hover:bg-slate-900 self-center mt-4 p-2 rounded-xl' type='submit'>get prices</button>
                 </form>
+                <div className='grow flex flex-col'>
+                    {loading ? <Spinner /> : <h1 className='text-3xl ml-5 mb-1'>{`${result}`}</h1>}
+                    <canvas id='my-chart' className='dark:text-black dark:bg-slate-300 p-5 rounded-xl ml-5'></canvas>
+                </div>
             </div>
 
-            {loading ? <Spinner /> : <div className='my-10'>
-                {stockData !== "" ? stockData.map((ele) => {
-                    return <div key={i++} className='flex justify-center'>
-                        <div>
-                            <h1>date = {ele.date}</h1>
-                            <h1>Open = {ele.open}</h1>
-                            <h1>close = {ele.close}</h1>
-                            <h1>high = {ele.high}</h1>
-                            <h1>low = {ele.low}</h1>
-                            <h1>market_cap = {ele.market_cap}</h1>
-                            <h1>volume = {ele.volume}</h1>
-                            <br />
-                        </div>
-                        <br />
-                    </div>
-                }) : <h1 className='text-center text-2xl'>No Results to show</h1>}
-            </div>}
 
-            <div className='flex justify-center'>
-                <iframe className='rounded-xl' title="BTC rate in USD" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=90673f20-0049-43a0-a304-c15e788fd8e5&autoAuth=true&ctid=8b178bc9-159c-4211-9747-f0ae84fa3369" allowFullScreen={true}></iframe>
-            </div>
         </div>
     )
 }
