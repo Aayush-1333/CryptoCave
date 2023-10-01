@@ -4,11 +4,15 @@ import UserContext from '../context/UserContext'
 
 export default function Navbar() {
 
+    // ========= React Hooks =========
+    const { loginState } = useContext(UserContext)
     const [bg, setBg] = useState(String.fromCharCode(9789))
     const currLoc = useLocation()
-    const { loginState } = useContext(UserContext)
 
 
+    /**
+     * Changes the background of the page
+     */
     const ChangeBg = () => {
         let htmlTag = document.documentElement
 
@@ -19,6 +23,7 @@ export default function Navbar() {
 
         htmlTag.classList.toggle("dark")
     }
+
 
     return (
         <div className='_navbar'>

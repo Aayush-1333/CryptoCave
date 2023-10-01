@@ -5,15 +5,19 @@ import { useNavigate } from "react-router-dom"
 
 export default function Login() {
 
+    // ========== React Hooks ===========
+    const { UserLogin } = useContext(UserContext)
+    const navigate = useNavigate()
     const [passwdStyle, setPasswdStyle] = useState("password")
     const [loginData, setLoginData] = useState({
         email: "",
         password: ""
     })
 
-    const { UserLogin } = useContext(UserContext)
-    const navigate = useNavigate()
 
+    /**
+     * for inspecting the password 
+    */
     const ChangePasswdStyle = () => {
         if (passwdStyle === "password")
             setPasswdStyle("text")
@@ -21,6 +25,11 @@ export default function Login() {
             setPasswdStyle("password")
     }
 
+
+    /**
+     * for submiiting the user form
+     * @param {*} e Event
+     */
     const SubmitForm = async (e) => {
         e.preventDefault()
         const result = await UserLogin(loginData)
@@ -28,11 +37,16 @@ export default function Login() {
             email: "",
             password: ""
         })
-        
+
         if (result)
             navigate("/users/user-dashboard")
     }
 
+
+    /**
+     * Handles the changes in the form fields data
+     * @param {*} e Event
+     */
     const OnChange = (e) => {
         setLoginData({ ...loginData, [e.target.name]: e.target.value })
     }

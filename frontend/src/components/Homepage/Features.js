@@ -1,7 +1,14 @@
+/**
+ * This is the Features component of the webap
+ */
 import React from 'react'
 
 export default function Features() {
 
+    /**
+     * Gives the fade in transition
+     * @param {*} elem_id HTML element
+     */
     const StartAppear = (elem_id) => {
         let feat_elem = document.getElementById(elem_id)
         if (feat_elem.getAttribute("style") !== "opacity: 100;")

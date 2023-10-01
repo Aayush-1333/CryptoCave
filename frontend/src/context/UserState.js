@@ -1,10 +1,21 @@
+/**
+ * This is the UserState file which contains all user-related operations and state variables
+ * 
+ * The following operations are as follows:
+ * Login/SignUp
+ * Logout
+ * SendOTP
+ */
+
 import React, { useState } from 'react'
 import UserContext from './UserContext'
 const host = process.env.REACT_APP_HOST
 const port = process.env.REACT_APP_BACKEND_PORT
 
+
 export default function UserState(props) {
 
+    // ============ State Variables ============
     const [userData, setUserData] = useState(undefined)
     const [loginState, setLoginState] = useState(false)
     const [generatedOtp, setGeneratedOtp] = useState("")
@@ -15,6 +26,12 @@ export default function UserState(props) {
         "password": ""
     })
 
+
+    /**
+     * for user login using the credentials
+     * @param {*} Login Object
+     * @returns Promise with boolean value
+     */
     const UserLogin = async (loginData) => {
         const response = await fetch(`http://${host}:${port}/api/users/get-user`, {
             method: "POST",
@@ -38,6 +55,10 @@ export default function UserState(props) {
     }
 
 
+    /**
+     * for user signup using the form data
+     * @returns Promise with boolean value
+     */
     const UserSignUp = async () => {
         console.log(signData)
         const response = await fetch(`http://${host}:${port}/api/users/create-user`, {
@@ -66,12 +87,18 @@ export default function UserState(props) {
     }
 
 
+    /**
+     * for user logout from the dashboard
+     */
     const UserLogout = () => {
         setLoginState(false)
         setUserData(undefined)
     }
 
 
+    /**
+     * calls the API for OTP generation and sets the OTP state variable 
+     */
     const SendOtp = async () => {
         const response = await fetch(`http://${host}:${port}/api/users/verify-otp`, {
             method: "POST",

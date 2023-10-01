@@ -1,5 +1,10 @@
+/**
+ * This is the Prices component of the webapp
+ */
 import React, { useContext, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import CryptoContext from '../../context/CryptoContext'
+import UserContext from '../../context/UserContext'
 import Spinner from '../Spinner'
 import Chart from 'chart.js/auto';
 
@@ -7,15 +12,19 @@ export default function Prices() {
 
     // ========= Context variable ========
     const { FetchPrices, loading, setLoading, result, setResult } = useContext(CryptoContext)
+    const { loginState } = useContext(UserContext)
 
     // ======== State variables =========
     const [chartObj, setChartObj] = useState(undefined)
+    const [stockData, setStockData] = useState("")
     const [stockOps, setStockOps] = useState({
         "freq": "Daily",
         "currency": "BTC",
         "market": "USD"
     })
-    const [stockData, setStockData] = useState("")
+
+    // For redirection
+    const navigate = useNavigate()
 
     // Function is used to make a 2d Chart to visualize data
     const MakeChart = () => {
@@ -76,6 +85,9 @@ export default function Prices() {
 
     // applies side-effects to the component on updation of stock data
     useEffect(() => {
+        if (loginState === false)
+            navigate('/users/login')
+
         if (stockData !== "") {
             setResult("")
             MakeChart()

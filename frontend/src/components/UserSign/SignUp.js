@@ -1,3 +1,6 @@
+/**
+ * This is the signup page for user account registration
+ */
 import React, { useContext, useState } from 'react'
 import UserContext from '../../context/UserContext'
 import { useNavigate } from "react-router-dom"

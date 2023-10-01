@@ -1,3 +1,6 @@
+/**
+ * This is the user details page for rendering the details of the user's account
+ */
 import React, { useContext } from 'react'
 import UserContext from '../../context/UserContext'
 import { useNavigate } from 'react-router-dom'

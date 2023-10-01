@@ -1,3 +1,6 @@
+/**
+ * This is the footer component of the webapp
+ */
 import React from 'react'
 
 export default function Footer() {

@@ -1,3 +1,6 @@
+/**
+ * This is the Crypto component of the webapp
+ */
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Prices from './Prices'

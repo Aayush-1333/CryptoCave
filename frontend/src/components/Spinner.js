@@ -1,3 +1,6 @@
+/**
+ * Spinner GIF 
+ */
 import React from 'react'
 import loading from  "./loading.gif"
 

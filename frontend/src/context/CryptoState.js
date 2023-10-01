@@ -3,11 +3,19 @@ import CryptoContext from './CryptoContext'
 const host = process.env.REACT_APP_HOST
 const port = process.env.REACT_APP_BACKEND_PORT
 
-export default function UserState(props) {
 
+export default function UserState(props) {
+    
+    // ======== State variables ========
     const [loading, setLoading] = useState(false)
     const [result, setResult] = useState("")
 
+
+    /**
+     * Calls the API for fetching the stock prices based on user options
+     * @param {*} stock_options Object
+     * @returns Promise
+     */
     const FetchPrices = async (stock_options) => {
         const response = await fetch(`http://${host}:${port}/api/cryptocurrency/get-crypto-prices`, {
             method: "POST",

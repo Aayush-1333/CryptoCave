@@ -1,3 +1,6 @@
+/**
+ * This is the Users Component for rendering all user-related content
+ */
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Verify from './Verify';

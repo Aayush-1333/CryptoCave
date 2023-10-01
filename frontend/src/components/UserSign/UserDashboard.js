@@ -1,3 +1,6 @@
+/**
+ * This is the dashboard component of the users endpoint
+ */
 import React from 'react'
 import UserDetails from './UserDetails'
 import UserTransactions from './UserTransactions'

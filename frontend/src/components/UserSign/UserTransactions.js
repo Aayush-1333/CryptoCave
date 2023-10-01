@@ -1,3 +1,7 @@
+/**
+ * This is the user transactions page for rendering the transactions
+ * done by the user
+ */
 import React from 'react'
 
 export default function UserTransactions() {

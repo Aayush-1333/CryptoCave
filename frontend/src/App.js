@@ -1,3 +1,12 @@
+/**
+ * This is the main component of React.js framework which consists of all the components
+ * This App.js file is rendered on the browser when the framework starts
+ * 
+ * The following endponits are:
+ * Root - Te default endpoint
+ * Users - Consists of all user-related tasks
+ * Crypto - All crypto-currency related content
+ */
 import UserState from './context/UserState';
 import CryptoState from './context/CryptoState';
 
@@ -13,7 +22,7 @@ import Users from './components/UserSign/Users';
 import Navbar from './components/Navbar';
 import Crypto from './components/CryptoStocks/Crypto';
 
-// The main component that routes all other endpoints
+
 function App() {
     return (
         <div>

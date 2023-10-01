@@ -1,3 +1,6 @@
+/* 
+    This is the global CSS file which is used by App.js file
+*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,7 +11,7 @@
 }
 
 ._home-bg {
-    @apply  bg-white dark:bg-gradient-to-r dark:from-slate-900 dark:to-slate-950 space-y-6
+    @apply bg-white dark:bg-gradient-to-r dark:from-slate-900 dark:to-slate-950 space-y-6
 }
 
 ._navbar {

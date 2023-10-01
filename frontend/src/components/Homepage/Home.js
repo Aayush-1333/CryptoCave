@@ -1,3 +1,6 @@
+/**
+ * This is the homepage of the webapp with features, services and footer component
+ */
 import React from 'react'
 import Services from './Services'
 import Features from './Features'

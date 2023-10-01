@@ -1,8 +1,12 @@
+/**
+ * This is the Services page of the webapp
+ */
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Services() {
 
+    // ========== State variables ==============
     const [style1, setStyle1] = useState('dark:border-black')
     const [style2, setStyle2] = useState('dark:border-black')
     const [style3, setStyle3] = useState('dark:border-black')
