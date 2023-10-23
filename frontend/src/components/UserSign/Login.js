@@ -56,7 +56,7 @@ export default function Login() {
             <form className='flex justify-center my-10' onSubmit={SubmitForm}>
 
                 <div className='bg-indigo-300 dark:bg-yellow-600 flex flex-col p-10 self-center rounded-xl'>
-                    <h2 className='text-center text-3xl font-bold'>Let's get back to crypto journey!</h2>
+                    <h2 className='text-center text-2xl md:text-3xl font-bold'>Let's get back to crypto journey!</h2>
 
                     <div className='flex flex-col p-2 self-center'>
                         <label htmlFor="email" className='p-2 text-xl'>Email</label>

@@ -12,7 +12,7 @@ export default function Services() {
     const [style3, setStyle3] = useState('dark:border-black')
 
     return (
-        <div className='bg-blue-200 dark:bg-black' style={{ height: '650px' }}>
+        <div className='bg-blue-200 dark:bg-black'>
             <div className='flex flex-col gap-4'>
                 <h1 className='_site-title'>CryptoCave - Start exploring cryptocurrencies</h1>
 

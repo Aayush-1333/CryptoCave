@@ -17,7 +17,7 @@ export default function UserDetails() {
 
     return (
         <div>
-            <h1 className='text-3xl mb-5 dark:text-white'>Welcome to user dashboard!</h1>
+            <h1 className='text-2xl md:text-3xl mb-5 dark:text-white'>Welcome to user dashboard!</h1>
 
             {userData !== undefined ? <div className='flex flex-col'>
                 <div className='self-center container grid grid-rows-3 grid-cols-2 p-5 md:text-xl gap-4 rounded-xl shadow-2xl dark:shadow-white dark:shadow-sm text-indigo-500 dark:text-yellow-500'>

@@ -92,7 +92,7 @@ export default function Prices() {
             setResult("")
             MakeChart()
         }
-    }, [stockData])
+    }, [stockData, MakeChart, loginState, navigate, setResult])
 
 
     // handles the change of fields in the form
@@ -102,11 +102,11 @@ export default function Prices() {
 
 
     return (
-        <div className={`flex flex-col p-5 bg-white dark:bg-black dark:text-white`}>
-            <h1 className='text-4xl mb-12'>Check out prices!</h1>
+        <div className={`flex flex-col p-5 bg-white dark:bg-black dark:text-white h-screen`}>
+            <h1 className='text-2xl md:text-4xl mb-12'>Check out prices!</h1>
 
-            <div className='flex justify-around'>
-                <form onSubmit={SubmitForm} className='flex flex-col rounded-xl space-y-4 bg-gray-400 dark:bg-zinc-900 px-24 pt-5'>
+            <div className='md:flex space-y-8 md:space-y-0 justify-around'>
+                <form onSubmit={SubmitForm} className='flex flex-col rounded-xl space-y-4 bg-gray-400 dark:bg-zinc-900 px-10 md:px-24 pt-5'>
                     <label htmlFor="freq">Frequency</label>
                     <select name="freq" className='dark:bg-black rounded-xl p-1 mt-2' value={stockOps.freq} onChange={OnChange}>
                         <option value="Daily">Daily</option>
