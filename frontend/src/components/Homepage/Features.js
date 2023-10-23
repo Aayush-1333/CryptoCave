@@ -35,7 +35,7 @@ export default function Features() {
 
             <h3 className='_features-title'>Explore the features!!</h3>
 
-            <div className='my-6 flex justify-around mt-10' onScrollCapture={() => { StartAppear('f-info-1') }}>
+            <div className='my-6 flex justify-around mt-10' onMouseEnter={() => { StartAppear('f-info-1') }}>
                 <img className='w-[120px] h-[80px] md:w-[500px] md:h-[300px]' src="https://akm-img-a-in.tosshub.com/businesstoday/images/story/202307/pandasecurity-crypto-gaming_1-sixteen_nine.jpg?size=948:533" alt="icon1" />
 
                 <div id='f-info-1' className='_feature-info'>

@@ -102,7 +102,7 @@ export default function Prices() {
 
 
     return (
-        <div className={`flex flex-col p-5 bg-white dark:bg-black dark:text-white h-screen`}>
+        <div className={`flex flex-col p-5 bg-white dark:bg-black dark:text-white h-screen md:h-max`}>
             <h1 className='text-2xl md:text-4xl mb-12'>Check out prices!</h1>
 
             <div className='md:flex space-y-8 md:space-y-0 justify-around'>
