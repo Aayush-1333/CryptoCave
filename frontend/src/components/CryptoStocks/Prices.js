@@ -138,7 +138,27 @@ export default function Prices() {
                 </div>
             </div>
 
+            {stockData ? <div className='mt-12 p-5'>
+                <h1 className='text-3xl'>Currency Details - {stockOps.currency}</h1>
+                <div className='container flex p-5 mt-10 bg-gradient-to-br from-indigo-200 to-indigo-300 dark:from-yellow-600 dark:to-yellow-700 rounded-xl'>
+                    <div>
+                        <h2 className='text-2xl'>Current opening price <span className='underline underline-offset-8'>{stockData[stockData.length - 1].open} {stockOps.market}</span></h2>
+                    </div>
 
+                    <div>
+                        <h2 className='text-2xl'>Current closing price <span className='underline underline-offset-8'>{stockData[stockData.length - 1].close} {stockOps.market}</span></h2>
+                    </div>
+
+                    <div>
+                        <h2 className='text-2xl'>Current highest price <span className='underline underline-offset-8'>{stockData[stockData.length - 1].high} {stockOps.market}</span></h2>
+                    </div>
+
+                    <div>
+                        <h2 className='text-2xl'>Current lowest price <span className='underline underline-offset-8'>{stockData[stockData.length - 1].low} {stockOps.market}</span></h2>
+                    </div>
+
+                </div>
+            </div> : "No data"}
         </div>
     )
 }

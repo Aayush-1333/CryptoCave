@@ -30,19 +30,19 @@ export default function Navbar() {
 
             <nav className='col md:col-span-6 text-center self-center md:ml-40 p-5 md:space-x-8 font-bold'>
 
-                <Link to='/' className={`p-2 hover:underline underline-offset-4 
+                <Link to='/' className={`p-2 hover:underline hover:border-4 border-indigo-300 dark:border-yellow-500 underline-offset-4 
                 ${currLoc.pathname === '/' ? 'text-indigo-500 dark:text-purple-300 underline' : 'text-black dark:text-yellow-500'}`}>
                     Home
                 </Link>
 
-                <Link to='/about' className={`p-2 hover:underline underline-offset-4 ${currLoc.pathname === '/about' ? 'text-indigo-500 dark:text-purple-300 underline' : 'text-black dark:text-yellow-500'}`}>
+                <Link to='/about' className={`p-2 hover:underline hover:border-4 border-indigo-300 dark:border-yellow-500 underline-offset-4 ${currLoc.pathname === '/about' ? 'text-indigo-500 dark:text-purple-300 underline' : 'text-black dark:text-yellow-500'}`}>
                     About</Link>
 
-                <Link to='/contacts' className={`p-2 hover:underline underline-offset-4 ${currLoc.pathname === '/contacts' ? 'text-indigo-500 dark:text-purple-300 underline' : 'text-black dark:text-yellow-500'}`}>
+                <Link to='/contacts' className={`p-2 hover:underline hover:border-4 border-indigo-300 dark:border-yellow-500 underline-offset-4 ${currLoc.pathname === '/contacts' ? 'text-indigo-500 dark:text-purple-300 underline' : 'text-black dark:text-yellow-500'}`}>
                     Contacts
                 </Link>
 
-                <Link to='/help' className={`p-2 hover:underline underline-offset-4 ${currLoc.pathname === '/help' ? 'text-indigo-500 dark:text-purple-300 underline' : 'text-black dark:text-yellow-500'}`}>
+                <Link to='/help' className={`p-2 hover:underline hover:border-4 border-indigo-300 dark:border-yellow-500 underline-offset-4 ${currLoc.pathname === '/help' ? 'text-indigo-500 dark:text-purple-300 underline' : 'text-black dark:text-yellow-500'}`}>
                     Help
                 </Link>
 
