@@ -19,17 +19,6 @@ export default function Features() {
         }, 500);
     }
 
-    // const handle1 = () => {
-    //     let feat_elem1 = document.getElementById("f-info-1")
-    //     let feat_elem2 = document.getElementById("f-info-2")
-    //     let feat_elem3 = document.getElementById("f-info-3")
-    //     feat_elem1.classList.add("_feature-info-appear")
-    //     feat_elem2.classList.add("_feature-info-appear")
-    //     feat_elem3.classList.add("_feature-info-appear")
-    // }
-
-    // window.addEventListener('scroll', handle1)
-
     return (
         <div id='_features' className='flex flex-col p-5 gap-4'>
 
