@@ -60,7 +60,7 @@ export default function UserState(props) {
      */
     const UserSignUp = async () => {
         console.log(signData)
-        const response = await fetch(`http://${host}:${port}/api/users/create-user`, {
+        const response = await fetch(`${api_url}/api/users/create-user`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -99,7 +99,7 @@ export default function UserState(props) {
      * calls the API for OTP generation and sets the OTP state variable 
      */
     const SendOtp = async () => {
-        const response = await fetch(`http://${host}:${port}/api/users/verify-otp`, {
+        const response = await fetch(`${api_url}/api/users/verify-otp`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
