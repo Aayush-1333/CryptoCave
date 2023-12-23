@@ -10,9 +10,6 @@ const port = process.env.PORT
 
 app.use(express.json())
 app.use(cors())
-app.use(cors({
-    origin: 'https://crypto-cave-frontend-qeioq05pm-aayush-1333.vercel.app'
-}))
 app.use("/api/cryptocurrency", require("./routes/cryptoCurrencies"))
 app.use("/api/users", require("./routes/users"))
 

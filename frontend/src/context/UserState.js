@@ -35,7 +35,8 @@ export default function UserState(props) {
         const response = await fetch(`${api_url}/api/users/get-user`, {
             method: "POST",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify({ ...loginData })
         })
@@ -63,7 +64,8 @@ export default function UserState(props) {
         const response = await fetch(`${api_url}/api/users/create-user`, {
             method: "POST",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify({ ...signData })
         })
@@ -102,7 +104,8 @@ export default function UserState(props) {
         const response = await fetch(`${api_url}/api/users/verify-otp`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify({ "email": signData.email })
         })

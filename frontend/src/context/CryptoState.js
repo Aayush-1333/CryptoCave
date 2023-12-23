@@ -19,7 +19,8 @@ export default function UserState(props) {
         const response = await fetch(`${api_url}/api/cryptocurrency/get-crypto-prices`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify({ ...stock_options })
         })
