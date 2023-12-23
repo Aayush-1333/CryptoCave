@@ -6,6 +6,17 @@ const cors = require("cors")
 require("dotenv").config()
 const port = process.env.PORT
 
+// Check if the node environment is in "development" or "production" mode 
+if (process.env.NODE_ENV === "production") {
+    const path = require("path")
+    app.use(express.static(path.resolve(__dirname, 'frontend', 'build')))
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'), (err) => {
+            if (err)
+                res.status(500).send(err)
+        })
+    })
+}
 
 app.use(express.json())
 app.use(cors())
