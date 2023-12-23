@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import CryptoContext from './CryptoContext'
-const host = "localhost"
-const port = 5000
+const api_url = process.env.REACT_APP_API_URL
 
 
 export default function UserState(props) {
-    
+
     // ======== State variables ========
     const [loading, setLoading] = useState(false)
     const [result, setResult] = useState("")
@@ -17,7 +16,7 @@ export default function UserState(props) {
      * @returns Promise
      */
     const FetchPrices = async (stock_options) => {
-        const response = await fetch(`http://${host}:${port}/api/cryptocurrency/get-crypto-prices`, {
+        const response = await fetch(`${api_url}/api/cryptocurrency/get-crypto-prices`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -9,8 +9,7 @@
 
 import React, { useState } from 'react'
 import UserContext from './UserContext'
-const host = "localhost"
-const port = 5000
+const api_url = process.env.REACT_APP_API_URL
 
 
 export default function UserState(props) {
@@ -33,7 +32,7 @@ export default function UserState(props) {
      * @returns Promise with boolean value
      */
     const UserLogin = async (loginData) => {
-        const response = await fetch(`http://${host}:${port}/api/users/get-user`, {
+        const response = await fetch(`${api_url}/api/users/get-user`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
