@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import CryptoContext from './CryptoContext'
-const api_url = "http://localhost:5000"
+const api_url = "http://localhost:5000/"
 
 
 export default function UserState(props) {
@@ -19,9 +19,7 @@ export default function UserState(props) {
         const response = await fetch(`${api_url}api/cryptocurrency/get-crypto-prices`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods':'POST,PATCH,OPTIONS'
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({ ...stock_options })
         })
