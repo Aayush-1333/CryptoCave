@@ -16,7 +16,7 @@ export default function UserState(props) {
      * @returns Promise
      */
     const FetchPrices = async (stock_options) => {
-        const response = await fetch(`${api_url}/api/cryptocurrency/get-crypto-prices`, {
+        const response = await fetch(`${api_url}api/cryptocurrency/get-crypto-prices`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -9,7 +9,7 @@
 
 import React, { useState } from 'react'
 import UserContext from './UserContext'
-const api_url = "http://localhost:5000"
+const api_url = "http://localhost:5000/"
 
 
 export default function UserState(props) {
@@ -32,12 +32,12 @@ export default function UserState(props) {
      * @returns Promise with boolean value
      */
     const UserLogin = async (loginData) => {
-        const response = await fetch(`${api_url}/api/users/get-user`, {
+        const response = await fetch(`${api_url}api/users/get-user`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods':'POST,PATCH,OPTIONS'
+                'Access-Control-Allow-Methods':'POST,OPTIONS'
             },
             body: JSON.stringify({ ...loginData })
         })
@@ -62,7 +62,7 @@ export default function UserState(props) {
      */
     const UserSignUp = async () => {
         console.log(signData)
-        const response = await fetch(`${api_url}/api/users/create-user`, {
+        const response = await fetch(`${api_url}api/users/create-user`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -103,11 +103,13 @@ export default function UserState(props) {
      * calls the API for OTP generation and sets the OTP state variable 
      */
     const SendOtp = async () => {
-        const response = await fetch(`${api_url}/api/users/verify-otp`, {
+        const response = await fetch(`${api_url}api/users/verify-otp`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                'Access-Control-Allow-Origin': '*'
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods':'POST,PATCH,OPTIONS'
+
             },
             body: JSON.stringify({ "email": signData.email })
         })
