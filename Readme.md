@@ -1,7 +1,7 @@
 # Crypto Cave - MERN App for cryptocurrency analysis using ChartJS and Machine Learning
 
 - This web app features the realtime analysis of crypto currencies market prices using 
-  web scraping along with various  business tools like chart.js 
+  web scraping along with various business tools like chart.js 
 
 ## Server Architecture using MERN stack
 
