@@ -128,6 +128,7 @@ export default function Prices() {
                         <option value="CNY">Chinese Yuan (CNY)</option>
                         <option value="RUB">Russian Ruble (RUB)</option>
                         <option value="INR">Indian Rupee (INR)</option>
+                        {/* <option value="EUR">Euro (EUR)</option> */}
                     </select>
 
                     <button className='bg-indigo-300 hover:bg-indigo-500 dark:bg-slate-800 dark:hover:bg-slate-900 self-center mt-4 p-2 rounded-xl' type='submit'>get prices</button>
