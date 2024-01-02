@@ -21,6 +21,9 @@ import Home from './components/Homepage/Home';
 import Users from './components/UserSign/Users';
 import Navbar from './components/Navbar';
 import Crypto from './components/CryptoStocks/Crypto';
+import About from './components/Homepage/About';
+import Contacts from './components/Homepage/Contacts';
+import Help from './components/Homepage/Help';
 
 
 function App() {
@@ -32,6 +35,9 @@ function App() {
                         <Navbar />
                         <Routes>
                             <Route path='/' element={<Home />} />
+                            <Route path='/about' element={<About />} />
+                            <Route path='/contacts' element={<Contacts/>} />
+                            <Route path='/help' element={<Help />} />
                             <Route path='/users/*' element={<Users />} />
                             <Route path='/crypto/*' element={<Crypto />} />
                         </Routes>
